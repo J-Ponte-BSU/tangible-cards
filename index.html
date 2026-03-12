@@ -64,6 +64,16 @@
             font-weight: bold;
         }
 
+        .fresh {
+            .big {
+                display: none;
+            }
+
+            .small {
+                font-size: 2.5rem;
+            }
+        }
+
         #sensor {
             background-color: #22C55E;
         }
@@ -85,7 +95,7 @@
     </style>
 </head>
 
-<body>
+<body class="fresh">
     <div id="row">
         <div id="sensor" class="card"><span class="big">???</span><span class="small">sensor</span></div>
         <div id="actuator" class="card"><span class="big">???</span><span class="small">actuator</span></div>
@@ -146,18 +156,21 @@
     const actuator = document.getElementById("actuator");
     const emotion = document.getElementById("emotion");
 
+    sensor.style.transform = `rotate(${10 - 20 * Math.random()}deg)`
+    actuator.style.transform = `rotate(${10 - 20 * Math.random()}deg)`
+    emotion.style.transform = `rotate(${10 - 20 * Math.random()}deg)`
+
     function shuffle(e, list) {
         e.querySelector(".big").innerText = list[Math.floor(Math.random() * list.length)]
         e.style.transform = `rotate(${10 - 20 * Math.random()}deg)`
     }
 
     function shuffleAll() {
+        document.body.classList.remove("fresh")
         shuffle(sensor, sensors)
         shuffle(actuator, actuators)
         shuffle(emotion, emotions)
     }
-
-    shuffleAll()
 
     document.getElementById("shuffle").addEventListener("click", shuffleAll)
     document.body.addEventListener("keydown", e => { if (e.code == "Space") shuffleAll(); else console.log(e); })

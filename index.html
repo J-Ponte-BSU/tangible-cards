@@ -145,25 +145,30 @@
         "Motors",
     ];
 
-    const emotions = [
-        "Sadness", "Anger", "Fear", "Joy", "Love", "Surprise",
+    const good_emotions = [
+        "Cheerful", "Content", "Proud", "Optimistic", "Enthusiastic", "Excited",
+        "Affectionate", "Longing", "Desire", "Tenderness", "Peaceful",
+        "Moved", "Overcome", "Astonished", "Shocked",
+        "Happy", "Playful", "Blissful", "Amused", "Delighted", "Triumphant",
+        "Illustrious", "Eager", "Zeal", "Jubilant", "Warm", "Loving",
+        "Caring", "Compassionate", "Infatuation", "Passionate", "Attracted", "Sentimental",
+        "Fondness", "Romantic", "Admiration",
+        "Amazed", "Awe-struck", "Speechless", 
+        "Joy", "Love", "Surprise",
+    ]
+    
+    const bad_emotions = [
+        "Confused", "Perplexed", "Startled", "Troubled", "Agitated",
+        "Sadness", "Anger", "Fear", 
         "Suffering", "Sad", "Disappointed", "Shameful", "Neglected", "Despair",
         "Enraged", "Exasperated", "Irritable", "Jealous", "Disgust",
         "Scared", "Insecure", "Terror", "Nervous", "Horror",
-        "Cheerful", "Content", "Proud", "Optimistic", "Enthusiastic", "Excited",
-        "Affectionate", "Longing", "Desire", "Tenderness", "Peaceful",
-        "Moved", "Overcome", "Confused", "Perplexed", "Astonished", "Shocked",
         "Depressed", "Sick", "Lonely", "Bored", "Ashamed", "Guilty", "Powerless", "Vulnerable",
         "Grief", "Isolated", "Dismayed", "Appalled", "Disapproval",
         "Hostile", "Hate", "Outraged", "Mad", "Frustrated", "Aggressive", "Bitter", "Resentful",
         "Violated", "Repulsed",
         "Frightened", "Helpless", "Panicked", "Hysterical", "Inadequate", "Inferior", "Worthless",
         "Worried", "Anxious",
-        "Happy", "Playful", "Blissful", "Amused", "Delighted", "Triumphant",
-        "Illustrious", "Eager", "Zeal", "Jubilant", "Warm", "Loving",
-        "Caring", "Compassionate", "Infatuation", "Passionate", "Attracted", "Sentimental",
-        "Fondness", "Romantic", "Admiration",
-        "Amazed", "Awe-struck", "Speechless", "Startled", "Troubled", "Agitated"
     ]
 
     const sensor = document.getElementById("sensor");
@@ -183,7 +188,7 @@
         document.body.classList.remove("fresh")
         shuffle(sensor, sensors)
         shuffle(actuator, actuators)
-        shuffle(emotion, emotions)
+        shuffle(emotion, Math.random() < 0.6 ? good_emotions : bad_emotions)
     }
 
     document.getElementById("shuffle").addEventListener("click", shuffleAll)

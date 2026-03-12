@@ -19,9 +19,10 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             gap: 10vh;
+            padding: 5vh 0;
             font-family: sans-serif;
             height: 100vh;
             overflow: hidden;
@@ -88,20 +89,33 @@
 
         #shuffle {
             all: unset;
+            position: relative;
             background-color: white;
-            padding: .4rem 2rem;
-            border-radius: 2rem;
+            padding: .4rem;
+            width: 500px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            bottom: 0px;
+            transition: bottom .2s;
+        }
+
+        #shuffle-wrap:hover #shuffle {
+            bottom: 10px;
         }
     </style>
 </head>
 
 <body class="fresh">
+    <div class="dud"></div>
     <div id="row">
         <div id="sensor" class="card"><span class="big">???</span><span class="small">sensor</span></div>
         <div id="actuator" class="card"><span class="big">???</span><span class="small">actuator</span></div>
         <div id="emotion" class="card"><span class="big">???</span><span class="small">emotion</span></div>
     </div>
-    <button id="shuffle">Shuffle</button>
+    <div id="shuffle-wrap">
+        <button id="shuffle">shuffle</button>
+    </div>
 </body>
 <script>
     const sensors = [
